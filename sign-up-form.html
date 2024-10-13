@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono|Menlo|Monaco|Consolas|Liberation+Mono|Courier+New|monospace&display=swap">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: "Mona Sans", sans-serif;
+    }
+    a{
+      color: #fff;
+      text-decoration: none;
+    }
+    .section-sign-up{
+      background-color: #040d21;
+      height: 100vh;
+      color: #fff;
+    }
+    .options label,
+    .options input{
+      width:4em;
+      padding:0.5em 1em;
+    }
+    .result  img {
+      max-width: 100%;
+    }
+    .box-2 {
+      margin-left: 88px;
+      width: 58%;
+
+    }
+
+
+
+
+    .modal-content{
+      background-color: #0c162d!important;
+    }
+    .sign-box{
+      background-color: #0c162d;
+      border: 1px solid #202637;
+      z-index: 9;
+      position: relative;
+    }
+    .sign-avtar-box{
+      height: 480px;
+    }
+    .acc-text{
+      color:#8193b2 !important
+    }
+    .typed{
+      color: #8193B2;
+      font-family: 'IBM Plex Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
+    }
+    .label-color{
+      color: #00cfc8;
+    }
+    .signup-input{
+      background-color: #0c162d;
+      color: #fff;
+      border: none;
+      padding-left:12px;
+      padding-right:12px;
+    }
+    .sign-in-btn{
+      background-color: #fff;
+      color: #0c162d;
+      border: none;
+    }
+    .form-control:focus {
+      color:#1f883d;
+      background-color:transparent;
+      border-color:#1f883d;
+      outline: 0;
+      box-shadow: none;
+    }
+    .typed-cursor{
+      opacity: 1;
+      animation: blink 0.7s infinite;
+    }
+    .bx-right-arrow-alt{
+      color: #ea4aaa;
+    }
+    .bx-x{
+      color: #d1242f;
+    }
+    .continue-btn{
+      color: #627597;
+      background: none;
+      border-color: #627597;
+    }
+    .form-control:disabled{
+      background-color: transparent;
+    }
+
+    @keyframes blink{
+      0% { opacity:1; }
+      50% { opacity:0; }
+      100% { opacity:1; }
+    }
+    .bx-check{
+      color: #1f883d;
+    }
+    .ctnsuccess{
+      color: #1f883d;
+      border-color: #1f883d;
+    }
+    .show-pass{
+      right: 1rem;
+      top:.4rem;
+    }
+
+/*    choose-avtar*/
+.image-avtar, .picture{
+    width: 150px;
+    height: 150px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.cropped{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    border-radius: 50%;
+}
+.choose-avtar i{
+    font-size:30px;
+    color: #fff;
+}
+#user_image{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.stars {
+    width: 1px;
+    position: absolute;
+    bottom: 0px;
+    opacity: .5;
+    height: 1px;
+    background: transparent;
+    box-shadow: 572px 587px #fff, 575px 1661px #fff, 514px 19px #fff, 1949px 765px #fff, 1620px 1287px #fff, 324px 1862px #fff, 1920px 414px #fff, 1009px 1087px #fff, 686px 911px #fff, 973px 1261px #fff, 435px 292px #fff, 1499px 1110px #fff, 556px 500px #fff, 1056px 1396px #fff, 186px 1082px #fff, 1362px 1961px #fff, 1261px 1296px #fff, 1160px 1205px #fff, 728px 512px #fff, 1746px 48px #fff, 1937px 778px #fff, 1759px 872px #fff, 1587px 952px #fff, 146px 1532px #fff, 661px 1821px #fff, 1685px 1918px #fff, 1583px 1725px #fff, 618px 1168px #fff, 1077px 807px #fff, 1864px 1946px #fff, 1406px 991px #fff, 1843px 1518px #fff, 1883px 1869px #fff, 1120px 1405px #fff, 1071px 332px #fff, 1248px 301px #fff, 985px 149px #fff, 93px 144px #fff, 1867px 399px #fff, 541px 1960px #fff, 1813px 312px #fff, 1381px 156px #fff, 396px 1719px #fff, 574px 1911px #fff, 1735px 1973px #fff, 1075px 1627px #fff, 725px 1978px #fff, 1405px 209px #fff, 1023px 1176px #fff, 1114px 999px #fff, 1679px 510px #fff, 1883px 1475px #fff, 539px 1182px #fff, 801px 1086px #fff, 1567px 19px #fff, 108px 881px #fff, 1046px 1809px #fff, 18px 351px #fff, 124px 1826px #fff, 1477px 1618px #fff, 1160px 1305px #fff, 1167px 1198px #fff, 916px 1574px #fff, 586px 994px #fff, 344px 237px #fff, 3px 1312px #fff, 1832px 379px #fff, 964px 1439px #fff, 1078px 387px #fff, 1135px 1062px #fff, 26px 1118px #fff, 1678px 1403px #fff, 182px 23px #fff, 1231px 1550px #fff, 1331px 1582px #fff, 716px 1820px #fff, 1906px 1913px #fff, 509px 509px #fff, 491px 1749px #fff, 1161px 279px #fff, 1089px 1564px #fff, 104px 1282px #fff, 677px 1853px #fff, 1770px 1094px #fff, 556px 1237px #fff, 704px 446px #fff, 266px 1448px #fff, 1823px 1340px #fff, 1954px 409px #fff, 1862px 1110px #fff, 197px 436px #fff, 1339px 1193px #fff, 195px 946px #fff, 1444px 1263px #fff, 768px 510px #fff, 785px 147px #fff, 967px 1986px #fff, 307px 1385px #fff, 646px 594px #fff, 1501px 1648px #fff, 633px 505px #fff, 236px 1080px #fff, 771px 767px #fff, 874px 1635px #fff, 1897px 1899px #fff, 159px 22px #fff, 1850px 1239px #fff, 1625px 791px #fff, 54px 780px #fff, 1471px 1288px #fff, 719px 1007px #fff, 1207px 350px #fff, 1044px 967px #fff, 607px 1021px #fff, 546px 1675px #fff, 884px 153px #fff, 1160px 1410px #fff, 1037px 1014px #fff, 1252px 78px #fff, 543px 283px #fff, 708px 683px #fff, 1033px 1476px #fff, 1500px 1607px #fff, 102px 87px #fff, 1958px 1846px #fff, 1020px 1973px #fff, 1013px 467px #fff, 1102px 1920px #fff, 227px 1163px #fff, 879px 382px #fff, 1200px 1002px #fff, 629px 1203px #fff, 208px 1268px #fff, 740px 564px #fff, 262px 664px #fff, 1505px 1146px #fff, 1506px 242px #fff, 185px 1262px #fff, 320px 830px #fff, 45px 620px #fff, 707px 921px #fff, 1029px 75px #fff, 950px 551px #fff, 1215px 519px #fff, 1640px 1897px #fff, 23px 1685px #fff, 1130px 277px #fff, 1907px 1515px #fff, 1622px 119px #fff, 123px 1261px #fff, 1762px 1579px #fff, 1488px 1017px #fff, 800px 1632px #fff, 572px 1502px #fff, 1718px 1852px #fff, 368px 47px #fff, 1849px 1447px #fff, 297px 1498px #fff, 911px 591px #fff, 700px 565px #fff, 516px 1747px #fff, 1229px 1519px #fff, 1233px 1364px #fff, 163px 503px #fff, 669px 1874px #fff, 1021px 1483px #fff, 1296px 179px #fff, 117px 1496px #fff, 1648px 797px #fff, 623px 1438px #fff, 1409px 964px #fff, 1403px 1153px #fff, 1487px 284px #fff, 850px 186px #fff, 1021px 1263px #fff, 695px 1066px #fff, 1639px 1734px #fff, 1520px 1601px #fff, 1075px 535px #fff, 1125px 1426px #fff, 1092px 1441px #fff, 234px 1339px #fff, 1181px 1658px #fff, 1475px 602px #fff, 414px 515px #fff, 1720px 1519px #fff, 1026px 1050px #fff, 1625px 286px #fff, 93px 192px #fff, 1170px 674px #fff, 1116px 240px #fff, 674px 227px #fff, 61px 344px #fff, 976px 824px #fff, 343px 497px #fff, 10px 1631px #fff, 337px 825px #fff, 1481px 962px #fff, 1206px 1903px #fff, 687px 1015px #fff, 1087px 470px #fff, 492px 1787px #fff, 1718px 368px #fff, 1382px 536px #fff, 1264px 965px #fff, 1191px 1448px #fff, 524px 729px #fff, 1054px 1277px #fff, 157px 1722px #fff, 1848px 1793px #fff, 9px 503px #fff, 288px 1212px #fff, 417px 1829px #fff, 1097px 1309px #fff, 519px 660px #fff, 587px 456px #fff, 1174px 341px #fff, 995px 549px #fff, 923px 817px #fff, 1017px 137px #fff, 1766px 68px #fff, 947px 45px #fff, 1210px 1383px #fff, 1809px 735px #fff, 249px 1973px #fff, 310px 1715px #fff, 1916px 1957px #fff, 1556px 1885px #fff, 1891px 1785px #fff, 1254px 546px #fff, 1629px 300px #fff, 1874px 778px #fff, 1819px 723px #fff, 504px 1104px #fff, 1951px 1577px #fff, 707px 1457px #fff, 500px 1868px #fff, 1074px 1642px #fff, 1299px 886px #fff, 1542px 1835px #fff, 1176px 1479px #fff, 1509px 1286px #fff, 1726px 1819px #fff, 179px 1350px #fff, 644px 464px #fff, 1119px 353px #fff, 859px 282px #fff, 881px 1064px #fff, 1702px 1198px #fff, 390px 1592px #fff, 478px 226px #fff, 1213px 1240px #fff, 414px 1687px #fff, 995px 469px #fff, 1864px 1270px #fff, 22px 97px #fff, 235px 1637px #fff, 1056px 231px #fff, 1695px 989px #fff, 923px 1710px #fff, 1294px 1701px #fff, 1253px 807px #fff, 1377px 518px #fff, 1469px 864px #fff, 1029px 662px #fff, 1623px 1930px #fff, 930px 1556px #fff, 227px 1436px #fff, 1760px 159px #fff, 309px 508px #fff, 1742px 1859px #fff, 1809px 1770px #fff, 169px 1083px #fff, 1057px 725px #fff, 1132px 976px #fff, 1235px 601px #fff, 1898px 513px #fff, 720px 1936px #fff, 120px 1212px #fff, 1874px 228px #fff, 29px 1750px #fff, 1010px 1927px #fff, 1206px 619px #fff, 1035px 1600px #fff, 1470px 316px #fff, 984px 485px #fff, 1233px 1816px #fff, 1558px 308px #fff, 300px 1072px #fff, 63px 1092px #fff, 300px 966px #fff, 1077px 263px #fff, 789px 1960px #fff, 710px 1445px #fff, 610px 1360px #fff, 1038px 754px #fff, 1908px 121px #fff, 848px 1581px #fff, 1891px 1228px #fff, 1947px 125px #fff, 723px 622px #fff, 474px 642px #fff, 1828px 295px #fff, 608px 1046px #fff, 396px 5px #fff, 156px 398px #fff, 46px 618px #fff, 1958px 616px #fff, 1355px 1668px #fff, 824px 671px #fff, 1858px 1089px #fff, 548px 1484px #fff, 1217px 1872px #fff, 1748px 569px #fff, 534px 270px #fff, 877px 1099px #fff, 1318px 1024px #fff, 1128px 353px #fff, 1095px 1559px #fff, 415px 475px #fff, 288px 581px #fff, 550px 869px #fff, 736px 795px #fff, 536px 241px #fff, 463px 1412px #fff, 1408px 1601px #fff, 142px 1561px #fff, 11px 1297px #fff, 585px 1922px #fff, 392px 982px #fff, 1101px 854px #fff, 461px 973px #fff, 1691px 1127px #fff, 388px 241px #fff, 123px 1860px #fff, 1844px 902px #fff, 1213px 748px #fff, 1681px 1898px #fff, 1280px 879px #fff, 1047px 146px #fff, 665px 899px #fff, 1621px 958px #fff, 1195px 189px #fff, 1329px 719px #fff, 1572px 1364px #fff, 760px 776px #fff, 1512px 1010px #fff, 1946px 1220px #fff, 1163px 1002px #fff, 1008px 933px #fff, 216px 678px #fff, 1422px 1436px #fff, 479px 1446px #fff, 340px 51px #fff, 746px 1360px #fff, 425px 1398px #fff, 515px 619px #fff, 407px 532px #fff, 452px 1076px #fff, 792px 55px #fff, 347px 1358px #fff, 156px 1850px #fff, 1494px 204px #fff, 307px 859px #fff, 1185px 838px #fff, 1708px 1525px #fff, 1220px 55px #fff, 930px 107px #fff, 477px 84px #fff, 239px 870px #fff, 18px 232px #fff, 1078px 245px #fff, 153px 1062px #fff, 431px 166px #fff, 1701px 231px #fff, 958px 1085px #fff, 864px 1781px #fff, 1376px 724px #fff, 573px 1916px #fff, 1643px 189px #fff, 1959px 557px #fff, 321px 623px #fff, 1490px 1226px #fff, 448px 1734px #fff, 742px 1101px #fff, 541px 1381px #fff, 1012px 1087px #fff, 1045px 1160px #fff, 1916px 464px #fff, 1942px 1265px #fff, 71px 1290px #fff, 1548px 1854px #fff, 270px 664px #fff, 381px 1498px #fff, 1701px 887px #fff, 1698px 917px #fff, 678px 724px #fff, 691px 111px #fff, 532px 1924px #fff, 1141px 569px #fff, 247px 1626px #fff, 1244px 215px #fff, 1749px 1897px #fff, 1837px 1152px #fff, 933px 1375px #fff, 1765px 1547px #fff, 942px 1608px #fff, 1489px 169px #fff, 1136px 1834px #fff, 50px 1625px #fff, 193px 1380px #fff, 838px 1484px #fff, 153px 560px #fff, 442px 691px #fff, 467px 837px #fff, 1147px 423px #fff, 961px 545px #fff, 982px 1550px #fff, 188px 1485px #fff, 419px 1823px #fff, 45px 1431px #fff, 880px 421px #fff, 1038px 1881px #fff, 1247px 147px #fff, 1105px 120px #fff, 1745px 288px #fff, 1441px 970px #fff, 1593px 508px #fff, 1792px 1479px #fff, 1009px 1387px #fff, 1444px 408px #fff, 1207px 1704px #fff, 610px 1284px #fff, 571px 1481px #fff, 277px 1677px #fff, 1158px 554px #fff, 1612px 332px #fff, 730px 590px #fff, 1989px 1451px #fff, 1084px 1841px #fff, 960px 1727px #fff, 709px 1628px #fff, 395px 408px #fff, 477px 538px #fff, 1425px 1262px #fff, 1803px 1105px #fff, 5px 1079px #fff, 359px 611px #fff, 1354px 1197px #fff, 177px 1289px #fff, 1075px 1438px #fff, 284px 1582px #fff, 292px 352px #fff, 1675px 1650px #fff, 1704px 1996px #fff, 1745px 1420px #fff, 123px 1325px #fff, 474px 902px #fff, 142px 503px #fff, 1590px 1127px #fff, 1685px 1411px #fff, 439px 358px #fff, 1336px 1061px #fff, 1967px 1759px #fff, 1833px 735px #fff, 660px 245px #fff, 1552px 1300px #fff, 1898px 357px #fff, 229px 126px #fff, 893px 1254px #fff, 1736px 1428px #fff, 224px 913px #fff, 964px 1296px #fff, 515px 35px #fff, 904px 762px #fff, 572px 1876px #fff, 901px 446px #fff, 959px 795px #fff, 693px 1429px #fff, 977px 1422px #fff, 575px 1236px #fff, 1912px 1136px #fff, 674px 1531px #fff, 945px 1533px #fff, 1407px 317px #fff, 845px 73px #fff, 621px 1645px #fff, 1440px 519px #fff, 1012px 956px #fff, 303px 734px #fff, 1816px 621px #fff, 1368px 152px #fff, 312px 1838px #fff, 1141px 636px #fff, 845px 1420px #fff, 1911px 610px #fff, 494px 81px #fff, 139px 636px #fff, 1588px 841px #fff, 1248px 1494px #fff, 510px 792px #fff, 712px 1654px #fff, 1143px 1619px #fff, 698px 1318px #fff, 650px 379px #fff, 1905px 231px #fff, 283px 1200px #fff, 1794px 1862px #fff, 880px 589px #fff, 1856px 752px #fff, 1475px 8px #fff, 462px 362px #fff, 1978px 871px #fff, 1222px 20px #fff, 1784px 1841px #fff, 1079px 401px #fff, 565px 1480px #fff, 832px 1886px #fff, 247px 219px #fff, 144px 1463px #fff, 108px 25px #fff, 1991px 1777px #fff, 1005px 1257px #fff, 1487px 994px #fff, 832px 433px #fff, 1624px 691px #fff, 1613px 1338px #fff, 685px 953px #fff, 582px 1941px #fff, 1439px 1640px #fff, 1319px 1683px #fff, 1715px 1399px #fff, 815px 1858px #fff, 208px 1766px #fff, 189px 1982px #fff, 192px 930px #fff, 1384px 138px #fff, 878px 1090px #fff, 1885px 1985px #fff, 562px 1852px #fff, 32px 1371px #fff, 1786px 812px #fff, 494px 1721px #fff, 1000px 299px #fff, 827px 1794px #fff, 1861px 1440px #fff, 1535px 510px #fff, 477px 787px #fff, 1208px 438px #fff, 1340px 1854px #fff, 1159px 1135px #fff, 1005px 811px #fff, 75px 1043px #fff, 1226px 1894px #fff, 1155px 1673px #fff, 1589px 1386px #fff, 1954px 1763px #fff, 1449px 1683px #fff, 907px 208px #fff, 708px 842px #fff, 1582px 186px #fff, 1636px 1394px #fff, 1169px 482px #fff, 79px 1639px #fff, 393px 383px #fff, 1293px 882px #fff, 17px 1153px #fff, 1979px 278px #fff, 96px 66px #fff, 1629px 1384px #fff, 2000px 130px #fff, 1035px 194px #fff, 133px 1660px #fff, 1135px 221px #fff, 1138px 610px #fff, 1427px 88px #fff, 733px 169px #fff, 488px 573px #fff, 195px 332px #fff, 249px 1614px #fff, 1667px 844px #fff, 1354px 980px #fff, 1678px 1288px #fff, 1316px 1431px #fff, 1356px 1413px #fff, 226px 1069px #fff, 644px 1043px #fff, 455px 1790px #fff, 1355px 664px #fff, 655px 1196px #fff, 969px 886px #fff, 217px 410px #fff, 82px 479px #fff, 304px 702px #fff, 600px 990px #fff, 137px 1542px #fff, 997px 63px #fff, 1450px 376px #fff, 548px 1123px #fff, 486px 493px #fff, 965px 1142px #fff, 1966px 91px #fff, 214px 491px #fff, 547px 899px #fff, 1462px 1306px #fff, 1136px 189px #fff, 135px 861px #fff, 1644px 1671px #fff, 342px 1663px #fff, 735px 655px #fff, 1507px 1862px #fff, 19px 977px #fff, 1886px 714px #fff, 1409px 1379px #fff, 959px 1096px #fff, 352px 1902px #fff, 479px 209px #fff, 964px 882px #fff, 516px 1376px #fff, 2000px 606px #fff, 318px 1554px #fff, 59px 1259px #fff, 1543px 1133px #fff, 1168px 1541px #fff, 1366px 1265px #fff, 1095px 434px #fff, 748px 861px #fff, 1337px 1540px #fff, 1755px 269px #fff, 1578px 1985px #fff, 1926px 1323px #fff, 602px 1315px #fff, 1577px 1858px #fff, 926px 923px #fff, 485px 874px #fff, 668px 1651px #fff, 445px 1023px #fff, 1468px 1049px #fff, 1344px 1543px #fff, 672px 611px #fff, 1999px 902px #fff, 666px 1294px #fff, 1296px 1473px #fff, 708px 670px #fff, 1120px 1223px #fff, 206px 627px #fff, 235px 1353px #fff, 35px 135px #fff, 183px 95px #fff, 1708px 628px #fff, 1547px 1237px #fff, 1883px 1660px #fff, 1419px 1030px #fff, 35px 517px #fff, 1971px 222px #fff, 1283px 1480px #fff, 846px 353px #fff, 1316px 3px #fff, 278px 1432px #fff, 940px 120px #fff, 159px 217px #fff, 95px 1091px #fff, 1043px 343px #fff, 438px 645px #fff, 633px 1197px #fff, 842px 639px #fff, 1965px 1548px #fff, 1013px 543px #fff, 1411px 647px #fff, 225px 1975px #fff, 1342px 768px #fff, 771px 1426px #fff, 965px 1320px #fff, 407px 1656px #fff, 949px 934px #fff, 386px 1628px #fff, 1077px 297px #fff, 581px 90px #fff, 1395px 75px #fff, 1103px 113px #fff, 1199px 1822px #fff, 737px 1646px #fff, 360px 213px #fff, 458px 1537px #fff, 1652px 21px #fff, 921px 1941px #fff, 26px 1964px #fff, 1949px 1261px #fff, 183px 984px #fff, 428px 570px #fff, 1533px 1259px #fff, 1528px 1215px #fff, 1278px 1140px #fff, 1373px 1683px #fff, 1771px 301px #fff, 1684px 1901px #fff, 1986px 1914px #fff, 166px 731px #fff, 1394px 53px #fff, 1458px 1488px #fff;
+    animation: animStar 15s linear infinite;
+}
+@keyframes animStar{
+    100% {
+        transform: translateY( -72.0509884595vh);
+    }
+}
+
+.col img{
+  height:100px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 1s;
+  object-fit: cover;
+}
+.col label{
+  overflow: hidden;
+  position: relative;
+}
+.imgbgchk:checked + label>.tick_container{
+  opacity: 1;
+}
+/*         aNIMATION */
+.imgbgchk:checked + label>img{
+  transform: scale(1.25);
+  opacity: 0.3;
+}
+.tick_container {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  text-align: center;
+}
+.tick {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+</style>
+
+</head>
+<body>
+  <section class="section-sign-up">
+    <div class="signup-space d-none">
+      <div class="signup-stars"></div>
+      <div class="signup-stars"></div>
+      <div class="signup-stars"></div>
+      <div class="signup-stars"></div>
+      <div class="signup-stars"></div>
+      <div class="signup-stars"></div>
+    </div>
+    <div class="position-relative">
+      <div class="stars"></div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand offset-md-1 text-light" href="#"><img src="cloud_logo.png" height="30" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <form class="d-flex align-items-center gap-2" role="search">
+            <span class="acc-text">Already have an account?</span>
+            <a href="#" class="ms-2 text-light text-decoration-none">Sign up</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6">
+            <div class="sign-box rounded-2 p-4 m-lg-4 ">
+              <div class="sign-text-form">               
+                <div>
+                  <span id="typed" style="white-space:pre;" class="typed"></span>
+                </div>
+                <form action="" class="pt-4">
+                  <div class="py-2 d-none email-div">
+                    <label for="" class="label-color">Enter your email*</label>
+                    <div class="d-flex align-items-center gap-2 my-2">
+                      <div class="d-flex align-items-center gap-2 w-75">
+                        <span><i class='bx bx-right-arrow-alt' id="arrow_change"></i></span>
+                        <input id="email" class="signup-input py-1 w-100"  autofocus="autofocus" autocomplete="off" data-target="text-suggester.input" aria-describedby="email-err" type="email" name="user[email]" spellcheck="false">
+                      </div>
+                      <div class="w-25">
+                        <button type="button" id="ctnbtn"  class="continue-btn next-btn form-control px-3 mt-4 mt-sm-0">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="py-2 pass-div d-none">
+                    <label for="" class="label-color">Create a password*</label>
+                    <div class="d-flex align-items-center gap-2 my-2">
+                      <div class="d-flex align-items-center gap-2 w-75">
+                        <span><i class='bx bx-right-arrow-alt' id="pass_change"></i></span>
+                        <div class="position-relative w-100">
+                          <input type="password" id="password" placeholder="" class="py-1 signup-input w-100">
+                          <span class="toggle-password bx bx-low-vision position-absolute show-pass text-light"></span>
+                        </div>
+                      </div>
+                      <div class="w-25">
+                        <button type="button"  id="passbtn" class="continue-btn next-btn form-control px-3 mt-4 mt-sm-0" data-optimizely-event="click.signup_continue.email" data-continue-to="password-container">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="py-2 login-div d-none">
+                    <label for="" class="label-color">Enter a username*</label>
+                    <div class="d-flex align-items-center gap-2 my-2">
+                      <div class="d-flex align-items-center gap-2 w-75">
+                        <span><i class='bx bx-right-arrow-alt' id="login_change"></i></span>
+                        <input id="login" class="py-1 signup-input w-100"  autocomplete="off" aria-describedby="login-err" type="text" name="user[login]" spellcheck="false">
+                      </div>
+                      <div class="w-25">
+                        <button type="button"  id="loginbtn" class="continue-btn next-btn form-control px-3 mt-4 mt-sm-0" data-optimizely-event="click.signup_continue.email" data-continue-to="password-container">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="py-2 phone-number-div d-none">
+                    <label for="" class="label-color">Enter a phone number*</label>
+                    <div class="d-flex align-items-center gap-2 my-2">
+                      <div class="d-flex align-items-center gap-2 w-75">
+                        <span><i class='bx bx-right-arrow-alt' id="number_change"></i></span> 
+                        <div class="d-flex gap-2 w-100"> 
+                          <div class="w-50">
+                            <select name="" id="" class="py-1 signup-input w-100">
+                              <option value="">India</option>
+                              <option value="">USA</option>
+                            </select>
+                          </div>                 
+                          <input type="number" class="py-1 signup-input w-100" placeholder="" id="phone_number" name="phone_number"  data-intl-tel-input-id="0" fdprocessedid="5tdapt" autocomplete="off">
+                        </div> 
+                      </div>
+                      <div class="w-25">
+                        <button type="button"  id="phone_numberbtn" class="continue-btn form-control px-3 mt-4 mt-sm-0" data-optimizely-event="click.signup_continue.email" data-continue-to="password-container">
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>          
+              </div>
+              <div class="choose-avtar  d-none">
+                <span class="back-arrow"><i class='bx bx-arrow-back text-light' ></i></span>
+                <div class="text-center">
+                  <div class="image-avtar">                    
+                    <img class="cropped" src="" alt="">
+                  </div>
+                  <h5>Choose avtar</h5>
+                  <div class="profilepic-deatils d-flex align-items-center justify-content-center gap-1">
+                    <button type="button" class="btn " id="avatar-camera" value = "Update profile picture" title="Capture Image" onClick="openCameraModal_user();" data-toggle="tooltip" data-placement="bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-original-title="Capture Image">
+                      <i class='bx bxs-camera'></i>
+                    </button>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#user_image_upload" id="avatar-picture" value = "Update profile picture" title="Upload Image"  data-toggle="tooltip" data-placement="bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-original-title="Upload Image">
+                      <i class='bx bx-image' ></i>
+                    </button>
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#avtar_image_upload" id="avatar-image" value = "Update profile picture" title="Avtar Image"  data-toggle="tooltip" data-placement="bottom" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-original-title="Upload Image">
+                      <i class='bx bx-user' ></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="term-condtion d-none">
+              <small class="d-flex gap-2 p-4 py-2 text-light"><input type="checkbox" name="checkbox" /><span>I agree to <a href="#">SiloClouds Terms</a> and <a href="#">Privacy Policy</a></span></small>
+              <div class="text-center">
+                <button type="button" class="sign-in-btn px-4 rounded-2 py-2">Sign UP</button>
+              </div>
+            </div>
+            <div class="m-lg-4">
+              <p id="email-error" class="error-message acc-text"></p>
+              <p id="pass-error" class="error-message acc-text"></p>
+              <p id="username-error" class="error-message acc-text"></p>
+              <p id="number-error" class="error-message acc-text"></p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="modal fade" data-bs-backdrop="static" tabindex="-1" role="dialog" id="cameraModal_user">
+          <div class="modal-dialog modal-xl " role="document">
+            <div class="modal-content">
+              <div class="modal-header border-0 d-flex align-items-center justify-content-between">
+                <h5 class="modal-title">Snapshot</h5>
+                <div class="dropdown" style="left: 30%;">
+                  <span class="dropbtn" onclick="javascript:void(0)"></span>
+                  <div class="icon-list">
+                    <ul class="option-icon-list">
+
+                      <li class="slide">
+                        <a class="slide header" href="#">
+                          <span class="nk-menu-icon">
+                          </span>
+                        </a>
+                        <div class="col-12 select outer-box-option">
+                          <select class="form-control-plaintext text-white videoSource" id="videoSource" >
+                            <option value="default" selected="selected">Select Video Source</option>
+                          </select>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>    
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="Webcam.reset();"></button>
+              </div>
+              <div class="modal-body pt-5 pt-md-2">
+
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <h6>Camera</h6>
+                    <div id="camera_window_user" class="m-auto "></div>
+                    <div class="text-center h1 mt-3">
+                      <a href="#" onClick="take_snapshot_user()"><i class='bx bxs-camera'></i></a>
+                    </div>                      
+                  </div>
+                  <div class="col-md-6">
+                    <h6>Captured Image</h6>
+                    <div id="snapshot_user">
+                      <img id="captured-image-user" src="">
+                    </div>
+                  </div>
+
+                  <div class="p-0 modal-footer border-0 mt-0 nk-modal-action justify-end">
+                    <ul class="btn-toolbar p-0 snapshot-button g-4 align-center list-unstyled">
+                      <li class="mx-2">
+                        <!-- <a href="#" onClick="resetCameraSnap_user()" class="sign-in-btn">Cancel</a> -->
+                        <button class="btn btn-danger rounded-0 " onClick="resetCameraSnap_user()">Cancel</button>
+                      </li>
+                      <li class="mx-2">
+                        <button class="btn btn-success rounded-0 border-0 disabled" id="saveSnap_user" onClick="saveSnap_user()" >Set</button>
+                      </li>
+                      <li><button class="btn btn-primary border-0 d-none" onClick="take_snapshot_user()">Take Snapshot</button></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="user_image_upload" data-bs-backdrop="static" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h5 class="modal-title">Upload User Image</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" ></button>
+              </div>
+              <div class="modal-body modal-body-md">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="pictureContainer col-md-8 m-auto">
+
+                      <div class="picture m-auto">
+
+                        <input type="file" id="user_image" accept="image/*" name="user_image" > 
+                      </div>
+                      <div class="text-center">
+                        <p class="py-2">Choose Avatar</p>
+                      </div>
+                      <!-- temp inline stle -->
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <!-- crop user image -->
+                    <main class="page">
+                      <div class="box">
+                      </div>
+                      <div class="box-2" style="width: 58%;">
+                        <div class="result "></div>
+                      </div>
+                      <div class="box-2 img-result hide">   
+                      </div>
+                      <div class="box">
+                        <div class="options hide img-w">     
+                        </div>    
+                      </div>
+                    </main>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <button type="button" class="btn btn-primary border-0" id="upload2" data-dismiss="modal">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="avtar_image_upload" data-bs-backdrop="static" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h5 class="modal-title">Upload User Image</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" ></button>
+              </div>
+              <div class="modal-body modal-body-md">
+                <div class="row row-cols-1 row-cols-md-3 row-cols-md-4">
+                  <div class='col text-center'>
+                    <input type="radio" name="imgbackground" id="img1" class="d-none imgbgchk" value="images/avtar1.png">
+                    <label for="img1">
+                      <img src="images/avtar1.png" alt="Image 1">
+                      <div class="tick_container">
+                        <div class="tick"><i class="fa fa-check"></i></div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class='col text-center'>
+                    <input type="radio" name="imgbackground" id="img2" class="d-none imgbgchk" value="images/avtar2.png">
+                    <label for="img2">
+                      <img src="images/avtar2.png" alt="Image 2">
+                      <div class="tick_container">
+                        <div class="tick"><i class="fa fa-check"></i></div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class='col text-center'>
+                    <input type="radio" name="imgbackground" id="img3" class="d-none imgbgchk" value="images/avtar3.png">
+                    <label for="img3">
+                      <img src="images/avtar3.png" alt="Image 3">
+                      <div class="tick_container">
+                        <div class="tick"><i class="fa fa-check"></i></div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class='col text-center'>
+                    <input type="radio" name="imgbackground" id="img4" class="d-none imgbgchk" value="images/avtar1.png">
+                    <label for="img4">
+                      <img src="images/avtar1.png" alt="Image 4">
+                      <div class="tick_container">
+                        <div class="tick"><i class="fa fa-check"></i></div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <button type="button" class="btn btn-primary border-0" id="avtar-uplaod" data-dismiss="modal">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" ></script>
+  <script>
+    $("#typed").typed({
+      strings: ["Welcome to SiloCloud! </br>Let’s begin the adventure"],
+      typeSpeed: 10,
+      startDelay: 0,
+      backSpeed: 60,
+      backDelay: 500,
+      loop: false,
+      cursorChar: "",
+      contentType: 'html',
+      callback: function() {
+        $(".email-div").removeClass('d-none');
+      }
+    });
+
+
+// email-validation
+    $(document).ready(function() {
+// $('#email').blur();
+      $('#email').on('keyup', function() {
+        validateEmail($(this).val());  
+
+      });
+
+      $('#email').on('focus', function() {
+        var btnSuccess = $('#ctnbtn');
+        btnSuccess.removeClass("d-none").addClass("d-block"); 
+        var passSuccess = $('#passbtn');
+        passSuccess.removeClass("d-block").addClass("d-none");
+        var logSuccess = $('#loginbtn');
+        logSuccess.removeClass("d-block").addClass("d-none");
+        console.log(validateEmail($(this).val()));
+        if(validateEmail($(this).val())){        
+// $("#arrow_change").toggleClass("bx-check bx-right-arrow-alt");       
+        }  
+      });
+    });
+
+    function validateEmail(email)
+    {
+      var emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;;
+      var emailInput = $('#email');
+      var emailError = $('#email-error');
+      var btnSuccess = $('#ctnbtn');
+      $('#pass-error').html('');
+
+      if (email == '') {
+        emailInput.addClass('error');
+        emailError.text('Please enter email');
+        btnSuccess.removeClass("ctnsuccess");
+        $("#arrow_change").addClass("bx-right-arrow-alt").removeClass("bx-x bx-check"); 
+        return false;  
+      } else if (emailRegex.test(email)) {
+        emailInput.removeClass('error');
+        emailError.text('');
+        btnSuccess.addClass("ctnsuccess");
+        $("#arrow_change").addClass("bx-check").removeClass("bx-x bx-right-arrow-alt");             
+        return true; 
+
+      } else {
+        emailInput.addClass('error');
+        emailError.text('Email is invalid or already taken');
+        btnSuccess.removeClass("ctnsuccess");
+        $("#arrow_change").removeClass("bx-check").addClass("bx-x");
+        return false;  
+
+      }
+      return true;
+    };
+
+
+// password-validation
+    $(document).ready(function() {
+      $('#password').on('focus', function() {
+        $('#passbtn').removeClass("d-none").addClass("d-block");
+        $('#ctnbtn').removeClass("d-block").addClass("d-none");
+        var logSuccess = $('#loginbtn');
+        logSuccess.removeClass("d-block").addClass("d-none");
+        if( $("#arrow_change").hasClass('bx-right-arrow-alt')){
+          $("#arrow_change").toggleClass("bx-check bx-right-arrow-alt");
+        }
+// $("#pass_change").toggleClass("bx-check bx-right-arrow-alt");
+      });
+
+      $('#password').on('keyup', function() {
+        var pswd = $(this).val();
+        var passError = $('#pass-error');
+        var passSuccess = $("#passbtn");
+        var passChange = $("#pass_change");
+
+        if (pswd.length < 8) {
+          passError.text('Make sure it is at least 15 characters OR at least 8 characters including a number and a lowercase letter');
+          passSuccess.removeClass("ctnsuccess").attr("disabled", "disabled");
+          passChange.removeClass("bx-check").addClass("bx-x");
+        } else if (!pswd.match(/[A-z]/)) {
+          passError.text('At least one letter');
+          passSuccess.removeClass("ctnsuccess");
+          passChange.removeClass("bx-check").addClass("bx-x");
+        } else if (!pswd.match(/[A-Z]/)) {
+          passError.text('At least one Capital letter');
+          passSuccess.removeClass("ctnsuccess");
+          passChange.removeClass("bx-check").addClass("bx-x");
+        } else if (!pswd.match(/\d/)) {
+          passError.text('At least one number');
+          passSuccess.removeClass("ctnsuccess");
+          passChange.removeClass("bx-check").addClass("bx-x");
+        } else if (!pswd.match(/\W|_/g)) {
+          passError.text('At least one special character');
+          passSuccess.removeClass("ctnsuccess");
+          passChange.removeClass("bx-check").addClass("bx-x");
+        } else {
+          passError.text('');
+          passSuccess.addClass("ctnsuccess").attr("disabled", false);
+          passChange.removeClass("bx-x bx-right-arrow-alt").addClass("bx-check");
+        }
+      });
+    });
+// username-validation
+    $(document).ready(function() {
+      $('#login').blur();
+      $('#login').on('keyup', function() {
+        validateLogIn($(this).val());        
+      });
+    });
+
+
+    $('#login').on('focus', function() {
+      $('#loginbtn').removeClass("d-none").addClass("d-block");
+      $('#ctnbtn').removeClass("d-block").addClass("d-none");
+      var passSuccess = $('#passbtn');
+      passSuccess.removeClass("d-block").addClass("d-none");
+      if( $("#arrow_change").hasClass('bx-right-arrow-alt')){
+        $("#arrow_change").toggleClass("bx-check bx-right-arrow-alt");
+      }
+    });
+
+
+
+
+    $('#login').on('keyup', function() {
+      var loginInput = $(this);
+      var textSuccess = $('#loginbtn');
+      var user_name = $('#username-error');
+      input  = loginInput.val();
+      charRegex =/^[A-Za-z_]*$/;
+      if ($("#login").val() == "") {
+        user_name.text('Please enter at least 6 characters without any symbols except _');
+        textSuccess.removeClass("ctnsuccess");
+        $("#login_change").removeClass("bx-right-arrow-alt bx-check").addClass("bx-x");      
+      } else if (/[^a-zA-Z0-9_]/.test(loginInput.val())) {
+        user_name.text('Please don\'t use symbols except _');
+        textSuccess.removeClass("ctnsuccess");
+        $("#login_change").removeClass("bx-right-arrow-alt bx-check").addClass("bx-x");
+      } else if (loginInput.val().length >= 6) {
+        textSuccess.prop("disabled", false);
+        textSuccess.addClass("ctnsuccess");
+        $("#login_change").removeClass("bx-right-arrow-alt bx-x").addClass("bx-check");      
+        user_name.text('');
+      } else {
+        textSuccess.prop("disabled", true);        
+        $("#login_change").removeClass("bx-check bx-right-arrow-alt").addClass("bx-x");
+        user_name.text('Please enter at least 6 characters without any symbols except _');
+        textSuccess.removeClass("ctnsuccess");
+      }
+    });
+
+// phone-number-validation
+    $(document).ready(function() {
+
+      $('#phone_number').on('focus', function() {
+        $('#loginbtn').removeClass("d-block").addClass("d-none");
+        $('#ctnbtn').removeClass("d-block").addClass("d-none");
+        $('#passbtn').removeClass("d-block").addClass("d-none");    
+      });
+
+      $('#phone_number').on('keyup', function() {
+        var phoneNumber = $("#phone_number").val();
+        var phoneNumber_btn = $("#phone_numberbtn");
+        var cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
+
+        $("#phone_number").val(cleanedPhoneNumber);
+
+        if (cleanedPhoneNumber.length === 10) {
+          phoneNumber_btn.prop("disabled", false);
+          phoneNumber_btn.addClass("ctnsuccess");
+          $("#number_change").removeClass("bx-right-arrow-alt").addClass("bx-check");
+          $("#number-error").text('');      
+        } 
+        else if (cleanedPhoneNumber.length >= 10){
+          $("#number-error").text('Enter correct number');
+          phoneNumber_btn.removeClass("ctnsuccess");
+          $("#number_change").removeClass("bx-check").addClass("bx-right-arrow-alt");            
+        } 
+
+        else {
+          phoneNumber_btn.prop("disabled", true);
+          phoneNumber_btn.removeClass("ctnsuccess");
+          $("#number_change").removeClass("bx-check").addClass("bx-right-arrow-alt");
+        }
+      });
+    });
+
+
+  </script>
+  <script>
+    $("#ctnbtn").on("click", function(){
+      if($("#email").val() != ""){
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var emailInput = $('#email');
+        var emailError = $('#email-error');
+        var btnSuccess = $('#ctnbtn');
+        email = $("#email").val();
+        if (validateEmail(email)) {
+// $("#arrow_change").toggleClass("bx-right-arrow-alt bx-check");
+          $(this).addClass("d-none")
+          $(".pass-div").removeClass('d-none');   
+        }
+
+      } else{
+        var emailError = $('#email-error');
+        emailError.text('Please enter email');
+      }  
+      $("#password").focus();   
+    });
+
+
+    $('.toggle-password').click(function() {
+      var input = $(this).prev("input");
+      if (input.attr("type") === "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
+      $(".toggle-password").toggleClass("bx-show bx-low-vision")
+    });
+
+
+
+
+    $("#passbtn").on("click", function(){
+      if($("#password").val() != ""){
+        $(this).addClass("d-none")
+        $(".login-div").removeClass('d-none').addClass("d-block");
+      }    
+      else{
+        var passError = $('#pass-error');
+        passError.text('Please enter password');
+      }  
+      $("#login").focus(); 
+    });
+
+    $("#loginbtn").on("click", function(){
+      if($("#login").val() != ""){
+        $(this).addClass("d-none")
+        $(".phone-number-div").removeClass('d-none').addClass("d-block");
+      } 
+      else{
+        var passError = $('#pass-error');
+        passError.text('Please enter password');
+      }  
+      $("#phone_number").focus();  
+    });
+
+    $(document).ready(function() {
+      $('input').keypress(function(e) {
+        if (e.which == 13) {
+e.preventDefault(); // Prevent default Enter key behavior
+
+var $nextButton = $(this).closest('.d-flex').next().find('button'); // Find the next button element
+
+if ($nextButton.length) {
+$nextButton.focus(); // Set focus on the next button element
+}
+}
+});
+      $("#phone_numberbtn").on("click", function(){
+        $(".term-condtion").addClass("d-block").removeClass("d-none");
+      });
+    });
+
+// next-btn
+    $(document).ready(function() {
+      var sign_up = $(".sign-in-btn");
+      var back_arrow = $(".back-arrow");
+      sign_up.on("click", function(){
+        $(".sign-text-form").addClass("d-none");
+        $(".choose-avtar").addClass("d-block").removeClass("d-none");
+        if($(".choose-avtar").hasClass('d-block')){        
+          $(".sign-box").addClass("sign-avtar-box");
+        }
+      });
+      back_arrow.on("click", function(){
+        $(".choose-avtar").addClass("d-none");
+        $(".sign-text-form").addClass("d-block").removeClass("d-none");
+      });
+    });
+
+
+// choose avtar
+    function openCameraModal_user() {
+      $("#cameraModal_user").modal("show");
+      Webcam.reset();
+      Webcam.attach("#camera_window_user");
+    }
+
+    function take_snapshot_user() {
+      Webcam.snap(function (data_uri) {
+        $("#captured-image-user").attr('src',data_uri);
+      });
+      $("#saveSnap_user").removeClass("disabled");
+    }
+
+    function saveSnap_user() {
+      var base64image = document.getElementById("captured-image-user").src;
+      $(".cropped").attr('src',base64image);
+      $('#cameraModal_user').modal('hide');
+      Webcam.reset();
+    }
+
+    function resetCameraSnap_user() {
+      $("#camera_window_user").html("");
+      $("#captured-image-user").attr('src','');
+      $("#cameraModal_user").modal("hide");
+      filesData = new FormData();
+      filesCount = 0;
+      chat_images = [];
+    }
+    function readURL(input, image_id) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#' + image_id)
+          .attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    let result = document.querySelector('.result'),
+    img_result = document.querySelector('.picture'),
+    img_w = document.querySelector('.img-w'),
+    img_h = document.querySelector('.img-h'),
+    options = document.querySelector('.options'),
+    save = document.querySelector('#upload2'),
+    cropped = document.querySelector('.cropped'),
+    upload = document.querySelector('#user_image'),
+    cropper = '';
+    if (upload) {    
+      upload.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+          const reader = new FileReader();
+          reader.onload = (e)=> {
+            if(e.target.result){
+              let img = document.createElement('img');
+              img.id = 'image';
+              img.src = e.target.result
+              result.innerHTML = '';
+              result.appendChild(img);
+              save.classList.remove('hide');
+              options.classList.remove('hide');
+              cropper = new Cropper(img, {
+                aspectRatio: 1 / 1,
+                viewMode: 1,
+                modal:true,
+                responsive:true,
+                minContainerWidth:230,
+                minContainerHeight:230,
+              });
+            }
+          };
+          reader.readAsDataURL(e.target.files[0]);
+
+        }
+      });
+    }
+    var $image=$('#user_image');
+
+    if (save) {
+      save.addEventListener('click',(e)=>{
+        e.preventDefault();
+        let imgSrc = cropper.getCroppedCanvas({
+          width: img_w.value 
+        }).toDataURL();
+        cropped.classList.remove('hide');
+        img_result.classList.remove('hide');
+        cropped.src = imgSrc;
+        $('#user_image_upload').modal('hide');
+      });
+    };
+
+    $("#avtar-uplaod").on("click", function() {
+
+      var avtar_image = $('[name="imgbackground"]:checked').val();
+      $(".cropped").attr("src", avtar_image);
+      $("#avtar_image_upload").modal("hide")
+    });
+
+
+  </script>
+
+  <script  src="js/webcam.min.js"></script>
+  <script language="JavaScript">
+    Webcam.set({
+      width: 450,
+      height: 340,
+      image_format: 'jpeg',
+      jpeg_quality: 90
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css"></link>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>  
+</body>
+</html>
